@@ -1,15 +1,7 @@
-function App() {
-  return (
-    <div>
-      <a target="_blank" rel="noreferrer" href="https://icons8.com/icon/mbC8zztqC5a3/pollen">
-        Pollen
-      </a>{' '}
-      icon by{' '}
-      <a target="_blank" rel="noreferrer" href="https://icons8.com">
-        Icons8
-      </a>
-    </div>
-  );
-}
+import Login from './pages/login/login';
+
+const App: React.FC = () => {
+  return <Login />;
+};
 
 export default App;
