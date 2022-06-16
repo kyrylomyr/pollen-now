@@ -5,7 +5,7 @@ function App() {
         Pollen
       </a>{' '}
       icon by{' '}
-      <a target="_blank" href="https://icons8.com">
+      <a target="_blank" rel="noreferrer" href="https://icons8.com">
         Icons8
       </a>
     </div>
