@@ -1,11 +1,14 @@
+import { useContext } from 'react';
 import { Stack, TextField, InputAdornment, Button } from '@mui/material';
 import KeyIcon from '@mui/icons-material/Key';
 
+import { ApiKeyContext } from '../contexts/api-key-context';
+import Title from '../components/title';
 import ApiKeyExplanation from '../components/api-key-explanation';
 
-import Title from '../components/title';
-
 const ApiKey: React.FC = () => {
+  const apiKeyCtx = useContext(ApiKeyContext);
+
   return (
     <Stack spacing={3}>
       <Title />
@@ -15,6 +18,7 @@ const ApiKey: React.FC = () => {
           label="API key"
           fullWidth
           size="small"
+          value={apiKeyCtx.apiKey}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
