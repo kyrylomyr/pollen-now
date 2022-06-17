@@ -1,7 +1,12 @@
-import Login from './pages/login/login';
+import Layout from './components/layout';
+import Login from './pages/login';
 
 const App: React.FC = () => {
-  return <Login />;
+  return (
+    <Layout>
+      <Login />
+    </Layout>
+  );
 };
 
 export default App;
