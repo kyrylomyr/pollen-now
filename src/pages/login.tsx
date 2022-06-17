@@ -23,7 +23,7 @@ const Login: React.FC = () => {
             )
           }}
         />
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="success">
           Save
         </Button>
       </Stack>
