@@ -1,15 +1,15 @@
 import { Stack, TextField, InputAdornment, Button } from '@mui/material';
 import KeyIcon from '@mui/icons-material/Key';
 
-import LoginExplanation from '../components/login-explanation';
+import ApiKeyExplanation from '../components/api-key-explanation';
 
 import Title from '../components/title';
 
-const Login: React.FC = () => {
+const ApiKey: React.FC = () => {
   return (
     <Stack spacing={3}>
       <Title />
-      <LoginExplanation />
+      <ApiKeyExplanation />
       <Stack spacing={1} alignItems="flex-end">
         <TextField
           label="API key"
@@ -31,4 +31,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default ApiKey;

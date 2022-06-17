@@ -1,11 +1,15 @@
 import { PropsWithChildren } from 'react';
 
-import { Box } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 
-const boxStyle = { maxWidth: '500px' };
+const childrenStyle = { m: 2, maxWidth: '800px' };
 
 const Layout: React.FC<PropsWithChildren> = ({ children }) => {
-  return <Box sx={boxStyle}>{children}</Box>;
+  return (
+    <Grid container justifyContent="center">
+      <Box sx={childrenStyle}>{children}</Box>
+    </Grid>
+  );
 };
 
 export default Layout;
