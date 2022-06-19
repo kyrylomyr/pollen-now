@@ -16,14 +16,14 @@ const ApiKeyExplanation: React.FC = () => {
       <Typography>
         A forecast is requested directly from the{' '}
         <Link href="https://www.weatherbit.io" underline="none" target="_blank" rel="noreferrer">
-          WeatherBit
+          weatherbit.io
         </Link>{' '}
         service.
       </Typography>
       <Typography>
         Please,{' '}
         <Link href="https://www.weatherbit.io/account/create" underline="none" target="_blank" rel="noreferrer">
-          create a free WeatherBit account
+          create a free Weatherbit account
         </Link>{' '}
         and provide your personal API Key here. It will be saved in the local storage of your browser and used only for
         the forecast requests.
