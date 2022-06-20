@@ -15,18 +15,18 @@ const ApiKeyExplanation: React.FC = () => {
       </Typography>
       <Typography>
         A forecast is requested directly from the{' '}
-        <Link href="https://www.weatherbit.io" underline="none" target="_blank" rel="noreferrer">
-          weatherbit.io
+        <Link href="https://developer.accuweather.com" underline="none" target="_blank" rel="noreferrer">
+          AccuWeather API
         </Link>{' '}
         service.
       </Typography>
       <Typography>
         Please,{' '}
         <Link href="https://www.weatherbit.io/account/create" underline="none" target="_blank" rel="noreferrer">
-          create a personal free Weatherbit account
+          register a free AccuWeather user
         </Link>{' '}
-        and provide your API Key here. It will be saved in the local storage of your browser and used only for the
-        forecast requests.
+        , add a new app and provide its API Key here. It will be saved in the local storage of your browser and used
+        only for the forecast requests.
       </Typography>
     </Stack>
   );

@@ -6,7 +6,7 @@ import ProtectedRoute from './components/protected-route';
 import Layout from './components/layout';
 import ApiKey from './pages/api-key';
 import Dashboard from './pages/dashboard';
-import NewLocation from './pages/new-location';
+import NewCity from './pages/new-city';
 
 const App: React.FC = () => {
   const apiKeyCtx = useContext(ApiKeyContext);
@@ -17,7 +17,7 @@ const App: React.FC = () => {
         <Route path="/api-key" element={<ApiKey />} />
         <Route element={<ProtectedRoute isAllowed={!!apiKeyCtx.apiKey} />}>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/new-location" element={<NewLocation />} />
+          <Route path="/new-city" element={<NewCity />} />
         </Route>
       </Routes>
     </Layout>
