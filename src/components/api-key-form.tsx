@@ -6,16 +6,31 @@ import { ApiKeyContext } from '../contexts/api-key-context';
 
 const ApiKeyForm: React.FC = () => {
   const apiKeyCtx = useContext(ApiKeyContext);
-  const [apiKey, setApiKey] = useState(apiKeyCtx.apiKey);
+  const [apiKey, setApiKey] = useState<string>(apiKeyCtx.apiKey);
+  const [error, setError] = useState<string>('');
+  const [alreadySubmitted, setAlreadySubmitted] = useState<boolean>(!!apiKeyCtx.apiKey);
+
+  const validate = (value: string): boolean => {
+    if (!value) {
+      setError('API Key is required');
+      return false;
+    }
+
+    setError('');
+    return true;
+  };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
     setApiKey(event.target.value);
+    validate(event.target.value);
   };
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    if (apiKey) {
+    setAlreadySubmitted(true);
+
+    if (validate(apiKey)) {
       apiKeyCtx.saveApiKey(apiKey);
     }
   };
@@ -24,6 +39,8 @@ const ApiKeyForm: React.FC = () => {
     <form onSubmit={handleSubmit}>
       <Stack spacing={1} alignItems="flex-end">
         <TextField
+          error={alreadySubmitted && !!error}
+          helperText={alreadySubmitted && error}
           label="API Key"
           fullWidth
           size="small"
@@ -37,7 +54,7 @@ const ApiKeyForm: React.FC = () => {
             )
           }}
         />
-        <Button type="submit" variant="contained" color="success">
+        <Button type="submit" variant="contained" color="success" disabled={!apiKey}>
           Save
         </Button>
       </Stack>
