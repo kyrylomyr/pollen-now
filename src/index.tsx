@@ -4,6 +4,7 @@ import { CssBaseline } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 import ApiKeyContextProvider from './contexts/api-key-context';
+import CitiesContextProvider from './contexts/cities-context';
 import ForecastContextProvider from './contexts/forecast-context';
 import App from './App';
 
@@ -18,11 +19,13 @@ root.render(
   <ThemeProvider theme={darkTheme}>
     <CssBaseline />
     <ApiKeyContextProvider>
-      <ForecastContextProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </ForecastContextProvider>
+      <CitiesContextProvider>
+        <ForecastContextProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </ForecastContextProvider>
+      </CitiesContextProvider>
     </ApiKeyContextProvider>
   </ThemeProvider>
 );
