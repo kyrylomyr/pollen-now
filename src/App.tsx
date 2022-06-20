@@ -1,26 +1,26 @@
-import { CssBaseline } from '@mui/material';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { useContext } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
-import ApiKeyContextProvider from './contexts/api-key-context';
+import { ApiKeyContext } from './contexts/api-key-context';
+import ProtectedRoute from './components/protected-route';
 import Layout from './components/layout';
 import ApiKey from './pages/api-key';
-
-const darkTheme = createTheme({
-  palette: {
-    mode: 'dark'
-  }
-});
+import Dashboard from './pages/dashboard';
+import NewLocation from './pages/new-location';
 
 const App: React.FC = () => {
+  const apiKeyCtx = useContext(ApiKeyContext);
+
   return (
-    <ThemeProvider theme={darkTheme}>
-      <CssBaseline />
-      <ApiKeyContextProvider>
-        <Layout>
-          <ApiKey />
-        </Layout>
-      </ApiKeyContextProvider>
-    </ThemeProvider>
+    <Layout>
+      <Routes>
+        <Route path="/api-key" element={<ApiKey />} />
+        <Route element={<ProtectedRoute isAllowed={!!apiKeyCtx.apiKey} />}>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/new-location" element={<NewLocation />} />
+        </Route>
+      </Routes>
+    </Layout>
   );
 };
 

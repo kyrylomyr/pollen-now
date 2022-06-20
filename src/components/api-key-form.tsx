@@ -1,14 +1,26 @@
-import { useContext, useState } from 'react';
+import { useCallback, useContext, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Stack, TextField, InputAdornment, Button } from '@mui/material';
 import KeyIcon from '@mui/icons-material/Key';
 
 import { ApiKeyContext } from '../contexts/api-key-context';
 
+import { NavigateStateObj } from '../types/navigate-state-obj';
+
 const ApiKeyForm: React.FC = () => {
   const apiKeyCtx = useContext(ApiKeyContext);
+
   const [apiKey, setApiKey] = useState<string>(apiKeyCtx.apiKey);
   const [error, setError] = useState<string>('');
   const [alreadySubmitted, setAlreadySubmitted] = useState<boolean>(!!apiKeyCtx.apiKey);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const navigateBack = useCallback(() => {
+    const from = (location.state as NavigateStateObj)?.from || '/';
+    navigate(from, { replace: true });
+  }, []);
 
   const validate = (value: string): boolean => {
     if (!value) {
@@ -32,6 +44,7 @@ const ApiKeyForm: React.FC = () => {
 
     if (validate(apiKey)) {
       apiKeyCtx.saveApiKey(apiKey);
+      navigateBack();
     }
   };
 
