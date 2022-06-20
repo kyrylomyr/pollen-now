@@ -1,13 +1,15 @@
 import { PropsWithChildren } from 'react';
-
 import { Box, Grid } from '@mui/material';
 
-const childrenStyle = { m: 2, maxWidth: '800px' };
+import Credits from './credits';
 
 const Layout: React.FC<PropsWithChildren> = ({ children }) => {
   return (
-    <Grid container justifyContent="center">
-      <Box sx={childrenStyle}>{children}</Box>
+    <Grid container direction="column" alignItems="center">
+      <Box m={2} maxWidth="800px">
+        {children}
+      </Box>
+      <Credits />
     </Grid>
   );
 };
