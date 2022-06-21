@@ -1,7 +1,7 @@
 import { createContext, PropsWithChildren, useCallback, useMemo, useState } from 'react';
 
-import { Forecast } from '../types/forecast';
-import { ForecastContextObj } from '../types/forecast-context-obj';
+import { Forecast } from './types/forecast';
+import { ForecastContextObj } from './types/forecast-context-obj';
 
 export const ForecastContext = createContext<ForecastContextObj>({
   forecasts: [],

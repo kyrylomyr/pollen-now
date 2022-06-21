@@ -1,7 +1,7 @@
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 
-import { ProtectedRouteProps } from '../types/protected-route-props';
-import { NavigateStateObj } from '../types/navigate-state-obj';
+import { ProtectedRouteProps } from './types/protected-route-props';
+import { NavigateStateObj } from './types/navigate-state-obj';
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ isAllowed, redirectTo = '/api-key', children }) => {
   const location = useLocation();

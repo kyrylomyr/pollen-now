@@ -1,7 +1,7 @@
 import { createContext, PropsWithChildren, useCallback, useMemo, useState } from 'react';
 
-import { City } from '../types/city';
-import { CitiesContextObj } from '../types/cities-context-obj';
+import { City } from './types/city';
+import { CitiesContextObj } from './types/cities-context-obj';
 
 const fakeCities: City[] = [
   {

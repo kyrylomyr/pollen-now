@@ -1,6 +1,6 @@
 import { createContext, PropsWithChildren, useCallback, useMemo, useState } from 'react';
 
-import { ApiKeyContextObj } from '../types/api-key-context-obj';
+import { ApiKeyContextObj } from './types/api-key-context-obj';
 
 export const ApiKeyContext = createContext<ApiKeyContextObj>({
   apiKey: '',

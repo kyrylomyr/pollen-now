@@ -1,6 +1,6 @@
 import { Card, CardContent, Stack, Typography } from '@mui/material';
 
-import { Forecast } from '../types/forecast';
+import { Forecast } from '../contexts/types/forecast';
 
 const ForecastCard: React.FC<{ forecast: Forecast }> = ({ forecast }) => {
   return (

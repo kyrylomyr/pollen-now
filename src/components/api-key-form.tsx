@@ -5,7 +5,7 @@ import KeyIcon from '@mui/icons-material/Key';
 
 import { ApiKeyContext } from '../contexts/api-key-context';
 
-import { NavigateStateObj } from '../types/navigate-state-obj';
+import { NavigateStateObj } from './types/navigate-state-obj';
 
 const ApiKeyForm: React.FC = () => {
   const apiKeyCtx = useContext(ApiKeyContext);
