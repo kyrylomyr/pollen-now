@@ -1,4 +1,4 @@
-import { Forecast } from './forecast';
+import { Forecast } from './location';
 
 export type ForecastContextObj = {
   forecasts: Forecast[];
