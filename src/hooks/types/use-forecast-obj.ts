@@ -1,5 +1,7 @@
+import { GetForecastsResult } from './get-forecasts-result';
+
 export type UseForecastObj = {
   isLoading: boolean;
   error: string;
-  updateForecasts: (cityKey: string) => Promise<void>;
+  getForecasts: (locationKeys: string[]) => Promise<GetForecastsResult>;
 };
