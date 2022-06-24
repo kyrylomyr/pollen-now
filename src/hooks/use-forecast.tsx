@@ -6,7 +6,6 @@ import { ApiKeyContext } from '../contexts/api-key-context';
 import { UseForecastObj } from './types/use-forecast-obj';
 import { ForecastResponse } from './types/accuweather-api/forecast-response';
 import { GetForecastsResult } from './types/get-forecasts-result';
-import { Forecast } from '../contexts/types/forecast';
 import { AirAndPollen } from './types/accuweather-api/air-and-polllen';
 
 const getForecastLevel = (forecast: AirAndPollen | undefined): number =>
@@ -30,12 +29,10 @@ const useForecast = (): UseForecastObj => {
             `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${apiKeyCtx.apiKey}&details=true`
           );
 
-          const forecasts = data.DailyForecasts.map(
-            (df): Forecast => ({
-              timestamp: df.EpochDate,
-              level: getForecastLevel(df.AirAndPollen.find((aip) => aip.Name === 'Grass'))
-            })
-          );
+          const forecasts = data.DailyForecasts.map((df) => ({
+            timestamp: df.EpochDate,
+            level: getForecastLevel(df.AirAndPollen.find((aip) => aip.Name === 'Grass'))
+          }));
 
           result[locationKey] = forecasts;
         } catch (e) {

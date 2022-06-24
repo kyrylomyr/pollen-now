@@ -5,6 +5,5 @@ export type Location = {
   locationName: string;
   locationArea: string;
   locationCountry: string;
-  updatedAt: Date;
   forecasts: Forecast[];
 };
